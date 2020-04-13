@@ -1,10 +1,78 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+html {
   background-color: #F0FAFB;
+  font-family: 'Spartan', sans-serif;
+  font-size: 15px;
 }
 
 .hero {
   background: url('./assets/images/bg-header-desktop.svg');
-  background-color: #0A8A8A;
+  background-color: #5DA5A4;
   background-size: cover;
-  height: 145px;
+  height: 160px;
+}
+
+.box {
+  height: 155px;
+  border-left: 6px #5DA5A4 solid;
+}
+
+.box .workName {
+  color: #5DA5A4;
+  margin-right: 8px;
+}
+
+.box .jobName {
+  font-size: 18px;
+  color: #2B3735;
+}
+
+.box .tag:not(body).is-primary {
+  background-color: #5DA5A4;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.box .tag:not(body).is-dark {
+  background-color: #2B3735;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.box .tag:not(body).is-success.is-light {
+  background-color: #F0FAFB;
+  color: #5DA5A4;
+  font-weight: bold;
+}
+
+.box .media {
+  padding-top: 10px;
+}
+
+.box .content p {
+  line-height: 32px;
+}
+
+.box .media-content span {
+  margin-left: 5px;
+}
+
+.box .media-right span {
+  margin-top: 30px;
+  margin-right: 15px;
+}
+
+.box .fa-circle {
+  font-size: 3px;
+  margin-bottom: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #9A9F9E;
+}
+
+.box p {
+  color: #9A9F9E;
 }
