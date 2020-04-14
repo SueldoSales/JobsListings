@@ -13,9 +13,26 @@ html {
   height: 160px;
 }
 
+.hero .box {
+  height: 75px;
+  margin-top: 75px;
+}
+
+.hero .box .tag {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.hero .clearSearch {
+  line-height: 38px;
+}
+
+#jobs {
+  margin-top: 35px;
+}
+
 .box {
   height: 155px;
-  border-left: 6px #5DA5A4 solid;
 }
 
 .box .workName {
@@ -28,11 +45,21 @@ html {
   color: #2B3735;
 }
 
+.box .jobName:hover {
+  color: #5DA5A4;
+  cursor: pointer;
+}
+
 .box .tag:not(body).is-primary {
   background-color: #5DA5A4;
   color: #fff;
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.box .is-delete.tag:not(body).is-primary:hover {
+  background-color: #2B3735;
+  color: #fff;
 }
 
 .box .tag:not(body).is-dark {
@@ -46,6 +73,13 @@ html {
   background-color: #F0FAFB;
   color: #5DA5A4;
   font-weight: bold;
+}
+
+.box .tag:not(body).is-success.is-light:hover {
+  background-color: #5DA5A4;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .box .media {
