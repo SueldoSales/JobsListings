@@ -40,16 +40,12 @@ function JobsSearch() {
         })
     }
 
-    
-
     const search = (items) => {
         let miniSearch = new MiniSearch({
             fields: ['jobrole', 'languages'],
             storeFields: ['id', 'new', 'featured', 'posted', 'workname', 'workimage', 'jobdescription', 'jobrole', 'joblevel', 'worktime', 'workplace', 'languages'],
             extractField: (document, fieldName) => {
-                // Access nested fields
                 const value = fieldName.split('.').reduce((doc, key) => doc && doc[key], document)
-                // If field value is an array, join by space
                 return Array.isArray(value) ? value.join(' ') : value
             }
         });
@@ -59,12 +55,8 @@ function JobsSearch() {
         let results = miniSearch.search(items);
         
         setSearchResult(results);
-        console.log(results);
     
     }
-
-    // console.log(results);
-    console.log(searchResult);
 
     return (
         <Fragment>
