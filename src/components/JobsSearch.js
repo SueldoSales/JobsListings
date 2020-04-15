@@ -1,11 +1,14 @@
-import React, {useState, useEffect, Fragment} from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import api from '../services/api';
 
-function Jobs() {
+import MiniSearch from 'minisearch';
+
+function JobsSearch() {
 
     const [jobs, setJobs] = useState([]);
+    const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
         api.get('data.json')
@@ -14,12 +17,56 @@ function Jobs() {
             })
     }, []);
 
-    let searchItems = [];
+    useEffect(() => {
+        // const result = JSON.parse(localStorage.getItem('allData'));
+
+        // result.map(item => {
+        //    return search(item + ' ');
+        // })
+        // searchItems.map(item => {
+        //     return search(item + ' ');
+        // });
+        // search(searchArray);
+    });
+
+    let result = JSON.parse(localStorage.getItem('allData'));
+    let searchItems = [...result];
+    searchItems.map(item => {
+        let searchArray = (item + ' ');
+    })
+    // console.log(searchItems);
 
     const dataStorage = (data) => {        
 
         searchItems.push(data);
         localStorage.setItem('allData', JSON.stringify(searchItems));
+
+        // const result = JSON.parse(localStorage.getItem('allData'));
+
+        searchItems.map(item => {
+            let sueldoItem = (item + ' ');
+            console.log(sueldoItem);
+            return search(item + ' ');
+        })
+    }
+
+    const search = (items) => {
+        let miniSearch = new MiniSearch({
+            fields: ['jobrole', 'languages'],
+            extractField: (document, fieldName) => {
+                // Access nested fields
+                const value = fieldName.split('.').reduce((doc, key) => doc && doc[key], document)
+                // If field value is an array, join by space
+                return Array.isArray(value) ? value.join(' ') : value
+            }
+        });
+    
+        // console.log(jobs);
+        miniSearch.addAll(jobs);
+    
+        let results = miniSearch.search(items);
+    
+        // console.log(results);
     }
 
     return (
@@ -72,4 +119,4 @@ function Jobs() {
     );
 }
 
-export default Jobs;
+export default JobsSearch;

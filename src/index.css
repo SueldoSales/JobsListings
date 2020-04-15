@@ -7,7 +7,7 @@ html {
 }
 
 .hero {
-  background: url('./assets/images/bg-header-desktop.svg');
+  background: url('/images/bg-header-desktop.svg');
   background-color: #5DA5A4;
   background-size: cover;
   height: 160px;
