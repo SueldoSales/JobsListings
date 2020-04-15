@@ -18,24 +18,16 @@ function JobsSearch() {
     }, []);
 
     useEffect(() => {
-        // const result = JSON.parse(localStorage.getItem('allData'));
-
-        // result.map(item => {
-        //    return search(item + ' ');
-        // })
-        // searchItems.map(item => {
-        //     return search(item + ' ');
-        // });
-        // search(searchArray);
-    });
+        search(searchArray);
+    }, [jobs]);
 
     let result = JSON.parse(localStorage.getItem('allData'));
     let searchItems = [...result];
+    let searchArray;
     searchItems.map(item => {
-        let searchArray = (item + ' ');
+        return searchArray = (item + ' ');
     })
-    // console.log(searchItems);
-
+    
     const dataStorage = (data) => {        
 
         searchItems.push(data);
@@ -44,15 +36,16 @@ function JobsSearch() {
         // const result = JSON.parse(localStorage.getItem('allData'));
 
         searchItems.map(item => {
-            let sueldoItem = (item + ' ');
-            console.log(sueldoItem);
             return search(item + ' ');
         })
     }
 
+    
+
     const search = (items) => {
         let miniSearch = new MiniSearch({
             fields: ['jobrole', 'languages'],
+            storeFields: ['id', 'new', 'featured', 'posted', 'workname', 'workimage', 'jobdescription', 'jobrole', 'joblevel', 'worktime', 'workplace', 'languages'],
             extractField: (document, fieldName) => {
                 // Access nested fields
                 const value = fieldName.split('.').reduce((doc, key) => doc && doc[key], document)
@@ -61,18 +54,22 @@ function JobsSearch() {
             }
         });
     
-        // console.log(jobs);
         miniSearch.addAll(jobs);
     
         let results = miniSearch.search(items);
+        
+        setSearchResult(results);
+        console.log(results);
     
-        // console.log(results);
     }
+
+    // console.log(results);
+    console.log(searchResult);
 
     return (
         <Fragment>
         { 
-            jobs.map(job => (
+            searchResult.map(job => (
                 <div key={job.id} className="box" style={job.featured ? {borderLeft: '6px #5DA5A4 solid'} : {borderLeft: '6px #FFF solid'}}>
                     <article className="media">
                         <div className="media-left">
@@ -104,9 +101,9 @@ function JobsSearch() {
                             </div>
                         </div>
                         <div className="media-right">
-                            <span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span>
+                            <Link to="/search"><span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span></Link>
                             {
-                                job.languages.map(language => (
+                                Array.from(job.languages.split(" ")).map(language => (
                                     <Link to="/search"><span onClick={() => dataStorage(language)} value={language} className="tag is-success is-light is-medium">{language}</span></Link>
                                 ))
                             }

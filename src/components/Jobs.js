@@ -57,7 +57,7 @@ function Jobs() {
                             </div>
                         </div>
                         <div className="media-right">
-                            <span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span>
+                            <Link to="/search"><span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span></Link>
                             {
                                 job.languages.map(language => (
                                     <Link to="/search"><span onClick={() => dataStorage(language)} value={language} className="tag is-success is-light is-medium">{language}</span></Link>
