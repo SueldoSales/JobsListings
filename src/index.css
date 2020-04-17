@@ -25,6 +25,14 @@ html {
 
 .hero .clearSearch {
   line-height: 38px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.hero .clearSearch:hover {
+  cursor: pointer;
+  color: #5DA5A4;
+  text-decoration: underline;
 }
 
 #jobs {
@@ -109,4 +117,47 @@ html {
 
 .box p {
   color: #9A9F9E;
+}
+
+/* Responsive Props */
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    background: url('/images/bg-header-mobile.svg');
+    background-color: #5DA5A4;
+    background-size: cover;
+  }
+
+  .hero .box {
+    height: auto;
+    min-height: 75px;
+    margin-top: 75px;
+  }
+
+  .image {
+    position: absolute;
+  }
+
+  .image img.is-rounded {
+    margin-top: -50px;
+    margin-left: 10px;
+  }
+
+  #jobs .box {
+    height: auto;
+  }
+
+  #jobs .box:not(:last-child){
+    margin-bottom: 2.5rem;
+  }
+
+  .hrLine {
+    border: 1px solid #d4dad9;
+    margin-bottom: 0;
+  }
+
+  .languagesMobile span {
+    margin-top: 15px;
+    margin-right: 15px;
+  }
 }

@@ -29,7 +29,10 @@ function Jobs() {
                 <div key={job.id} className="box" style={job.featured ? {borderLeft: '6px #5DA5A4 solid'} : {borderLeft: '6px #FFF solid'}}>
                     <article className="media">
                         <div className="media-left">
-                            <figure className="image is-96x96">
+                            <figure className="is-hidden-mobile image is-96x96">
+                                <img className="is-rounded" src={job.workimage} alt={'imagem de ' + job.workname} />
+                            </figure>
+                            <figure className="is-hidden-tablet image is-48x48">
                                 <img className="is-rounded" src={job.workimage} alt={'imagem de ' + job.workname} />
                             </figure>
                         </div>
@@ -56,7 +59,7 @@ function Jobs() {
                                 </p>
                             </div>
                         </div>
-                        <div className="media-right">
+                        <div className="is-hidden-mobile media-right">
                             <Link to="/search"><span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span></Link>
                             {
                                 job.languages.map(language => (
@@ -65,6 +68,15 @@ function Jobs() {
                             }
                         </div>
                     </article>
+                    <hr className="is-hidden-tablet hrLine" />
+                    <div className="is-hidden-tablet languagesMobile">
+                        <Link to="/search"><span onClick={() => dataStorage(job.jobrole)} value={job.jobrole} className="tag is-success is-light is-medium">{job.jobrole}</span></Link>
+                        {
+                            job.languages.map(language => (
+                                <Link to="/search"><span onClick={() => dataStorage(language)} value={language} className="tag is-success is-light is-medium">{language}</span></Link>
+                            ))
+                        }
+                    </div>
                 </div>
             ))
         }
