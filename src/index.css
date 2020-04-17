@@ -119,6 +119,14 @@ html {
   color: #9A9F9E;
 }
 
+.footer {
+  background-color: #F0FAFB;
+}
+
+.footer a {
+  color: #5DA5A4;
+}
+
 /* Responsive Props */
 
 @media only screen and (max-width: 768px) {

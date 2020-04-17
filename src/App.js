@@ -5,6 +5,7 @@ import Header from './components/Header';
 import HeaderFilter from './components/HeaderFilter';
 import Jobs from './components/Jobs';
 import JobsSearch from './components/JobsSearch';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             </div>
           </section>
 
+          <Footer />
         </div>
       </Switch>
     </BrowserRouter>
