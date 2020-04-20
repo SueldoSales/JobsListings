@@ -15,4 +15,4 @@ Consiste em uma aplicação simples que disponibiliza vagas de empregos em tecno
 
 https://jobslistings.netlify.app/
 
-![Design preview for the Job Listings coding challenge](https://github.com/SueldoSales/JobListingsAssets/blob/master/design/desktop-preview.jpg)
+![Design preview for the Job Listings coding challenge](https://raw.githubusercontent.com/SueldoSales/JobsListings/master/public/images/desktop-preview.jpg)
